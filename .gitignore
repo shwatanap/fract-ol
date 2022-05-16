@@ -1,2 +1,6 @@
 *.a
 *.o
+*.d
+fractol
+*.DS_Store
+/minilibx-linux

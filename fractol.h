@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/17 00:50:13 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/17 01:12:46 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@
 # define WIDTH 800
 # define HEIGHT 800
 
-struct		s_canvas
+typedef struct s_canvas
 {
 	void	*mlx;
 	void	*win;
-};
+}			t_canvas;
+
+// canvas_utils.c
+void		init_canvas(t_canvas *canvas);
 #endif
