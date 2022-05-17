@@ -11,7 +11,8 @@ LIBFT_MAKE := $(MAKE) -C $(LIBFT_PATH)
 LIBFT_LIB := -L./libft/lib -lft
 
 SRCS := main.c \
-  canvas_utils.c
+  canvas_utils.c \
+  mlx_hooks.c
 OBJS := ${SRCS:.c=.o}
 DEPS := ${SRCS:.c=.d}
 
