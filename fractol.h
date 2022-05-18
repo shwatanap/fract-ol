@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/17 16:00:39 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/19 02:18:28 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,59 @@
 // # define MOUSE_CENTER 2
 // # define MOUSE_LEFT 3
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1000
+# define HEIGHT 1000
+# define MAX_ITER 50
+
+typedef struct s_img
+{
+	void			*img;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+	int				width;
+	int				height;
+}					t_img;
+
+typedef struct s_complex_num
+{
+	double			z_re;
+	double			z_im;
+	double			c_re;
+	double			c_im;
+	double			delta_re;
+	double			delta_im;
+}					t_complex_num;
 
 typedef struct s_canvas
 {
-	void	*mlx;
-	void	*win;
-}			t_canvas;
+	void			*mlx;
+	void			*win;
+	int				max_iter;
+	t_img			img;
+	t_complex_num	comp_num;
+}					t_canvas;
+
+// mandelbrot.c
+void				plot_mandelbrot(t_canvas *canvas);
 
 // canvas_utils.c
-void		init_canvas(t_canvas *canvas);
+void				init_canvas(t_canvas *canvas);
 
 // mlx_hooks.c
-int			exit_canvas(t_canvas *canvas);
-int			key_press_hook(int keycode, t_canvas *canvas);
+int					exit_canvas(t_canvas *canvas);
+int					key_press_hook(int keycode, t_canvas *canvas);
+
+// mlx_utils.c
+uint32_t			get_color(t_img img, int x, int y);
+void				my_mlx_pixel_put(t_img *img, int x, int y, int color);
+
+// color_utils.c
+uint32_t			rgb2hex(int r, int g, int b);
+uint32_t			hsv2hex(double h, double s, double v);
+
+// math_utils.c
+double				abs_double(double val);
+double				squared(double num);
 #endif

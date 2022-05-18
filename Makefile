@@ -12,7 +12,11 @@ LIBFT_LIB := -L./libft/lib -lft
 
 SRCS := main.c \
   canvas_utils.c \
-  mlx_hooks.c
+  mlx_hooks.c \
+  mlx_utils.c \
+  mandelbrot.c \
+  color_utils.c \
+  math_utils.c
 OBJS := ${SRCS:.c=.o}
 DEPS := ${SRCS:.c=.d}
 
