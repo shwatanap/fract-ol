@@ -13,4 +13,13 @@ void	init_canvas(t_canvas *canvas)
 		canvas->mlx = NULL;
 		exit(1);
 	}
+	canvas->img.img = mlx_new_image(canvas->mlx,
+									WIDTH,
+									HEIGHT);
+	if (!canvas->img.img)
+		exit(1);
+	canvas->img.addr = mlx_get_data_addr(canvas->img.img,
+											&canvas->img.bits_per_pixel,
+											&canvas->img.line_length,
+											&canvas->img.endian);
 }
