@@ -7,11 +7,10 @@ static uint32_t	get_color_in_fractal(t_canvas *canvas)
 	double	tmp_x;
 
 	iteration = 0;
-	while (canvas->comp_num.z_re * canvas->comp_num.z_re + canvas->comp_num.z_im
-		* canvas->comp_num.z_im <= 4 && iteration < MAX_ITER)
+	while (squared(canvas->comp_num.z_re) + squared(canvas->comp_num.z_im) <= 4
+		&& iteration < MAX_ITER)
 	{
-		tmp_x = canvas->comp_num.z_re * canvas->comp_num.z_re
-			- canvas->comp_num.z_im * canvas->comp_num.z_im
+		tmp_x = squared(canvas->comp_num.z_re) - squared(canvas->comp_num.z_im)
 			+ canvas->comp_num.c_re;
 		canvas->comp_num.z_im = 2 * canvas->comp_num.z_re
 			* canvas->comp_num.z_im + canvas->comp_num.c_im;
