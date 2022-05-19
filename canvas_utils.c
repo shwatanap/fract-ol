@@ -5,7 +5,7 @@ void	init_canvas(t_canvas *canvas)
 	canvas->mlx = mlx_init();
 	if (canvas->mlx == NULL)
 		exit(1);
-	canvas->win = mlx_new_window(canvas->mlx, WIDTH, HEIGHT, "fractol");
+	canvas->win = mlx_new_window(canvas->mlx, WIDTH, HEIGHT, CANVAS_TITLE);
 	if (canvas->win == NULL)
 	{
 		mlx_destroy_display(canvas->mlx);

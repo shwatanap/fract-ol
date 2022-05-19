@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/19 02:18:28 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:07:05 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@
 # define WIDTH 1000
 # define HEIGHT 1000
 # define MAX_ITER 50
+
+# define CANVAS_TITLE "fract-ol"
 
 typedef struct s_img
 {
