@@ -5,10 +5,10 @@ static uint32_t	get_color_in_fractal(t_canvas *canvas)
 	int		iteration;
 	int		color;
 	double	tmp_x;
+	else	color;
 
 	iteration = 0;
-	while (squared(canvas->comp_num.z_re) + squared(canvas->comp_num.z_im) <= 4
-		&& iteration < MAX_ITER)
+	while (squared(canvas->comp_num.z_re) + squared(canvas->comp_num.z_im) <= 4)
 	{
 		tmp_x = squared(canvas->comp_num.z_re) - squared(canvas->comp_num.z_im)
 			+ canvas->comp_num.c_re;
@@ -16,10 +16,10 @@ static uint32_t	get_color_in_fractal(t_canvas *canvas)
 			* canvas->comp_num.z_im + canvas->comp_num.c_im;
 		canvas->comp_num.z_re = tmp_x;
 		iteration++;
+		if (iteration == MAX_ITER)
+			return (rgb2hex(0, 0, 0));
 	}
-	if (iteration == MAX_ITER)
-		color = rgb2hex(0, 0, 0);
-	else if (iteration % 2 == 0)
+	if (iteration % 2 == 0)
 		color = rgb2hex(0, 255, 0);
 	else
 		color = rgb2hex(255, 0, 127);
