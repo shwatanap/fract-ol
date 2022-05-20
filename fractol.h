@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/19 14:07:05 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:53:15 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,18 @@ typedef struct s_img
 
 typedef struct s_complex_num
 {
-	double			z_re;
-	double			z_im;
-	double			c_re;
-	double			c_im;
-	double			delta_re;
-	double			delta_im;
+	double			re;
+	double			im;
 }					t_complex_num;
+
+typedef struct s_complex_info
+{
+	t_complex_num	z;
+	t_complex_num	c;
+	t_complex_num	delta;
+	t_complex_num	max;
+	t_complex_num	min;
+}					t_complex_info;
 
 typedef struct s_canvas
 {
@@ -73,7 +78,7 @@ typedef struct s_canvas
 	void			*win;
 	int				max_iter;
 	t_img			img;
-	t_complex_num	comp_num;
+	t_complex_info	comp_num;
 }					t_canvas;
 
 // mandelbrot.c

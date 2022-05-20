@@ -5,7 +5,7 @@ static uint32_t	get_color_in_fractal(t_canvas *canvas)
 	int				iteration;
 	int				color;
 	double			tmp_x;
-	t_complex_num	c_num;
+	t_complex_info	c_num;
 
 	iteration = 0;
 	c_num = canvas->comp_num;
@@ -29,7 +29,7 @@ void	plot_mandelbrot(t_canvas *canvas)
 {
 	int				x;
 	int				y;
-	t_complex_num	*c_num;
+	t_complex_info	*c_num;
 
 	c_num = &canvas->comp_num;
 	c_num->delta_re = (double)4 / WIDTH;
