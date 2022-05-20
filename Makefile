@@ -46,4 +46,7 @@ fclean: clean
 
 re: fclean all
 
+norm:
+	norminette $(SRCS)
+
 .PHONY: all clean fclean re bonus
