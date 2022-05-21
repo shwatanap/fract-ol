@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:09 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:11:47 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:42:32 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static uint32_t	get_burningship_color(t_canvas *canvas)
 	{
 		tmp_x = c_info->z.re * c_info->z.re - c_info->z.im * c_info->z.im
 			+ c_info->c.re;
-		c_info->z.im = abs_double(2 * c_info->z.re * c_info->z.im)
+		c_info->z.im = abs_double((double)2 * c_info->z.re * c_info->z.im)
 			+ c_info->c.im;
 		c_info->z.re = tmp_x;
 		iteration++;
@@ -64,16 +64,26 @@ static uint32_t	get_burningship_color(t_canvas *canvas)
 	return (color);
 }
 
+static void	update_complex_num(t_canvas *canvas, int x, int y)
+{
+	t_complex_info	*c_info;
+
+	c_info = &canvas->comp_num;
+	c_info->z.re = 0;
+	c_info->z.im = 0;
+	c_info->c.im = c_info->min.im + y * c_info->delta.im;
+	c_info->c.re = c_info->min.re + x * c_info->delta.re;
+}
+
 void	plot_mandelbrot_and_burningship(t_canvas *canvas)
 {
-	int				x;
-	int				y;
-	t_complex_info	*c_info;
-	uint32_t		(*get_color_func)(t_canvas *);
+	int					x;
+	int					y;
+	t_complex_info		*c_info;
+	t_get_color_func	get_color_func;
 
-	if (canvas->fractal_type == 0)
-		get_color_func = get_fractal_color;
-	else if (canvas->fractal_type == 2)
+	get_color_func = get_fractal_color;
+	if (canvas->fractal_type == 2)
 		get_color_func = get_burningship_color;
 	c_info = &canvas->comp_num;
 	c_info->delta.re = (c_info->max.re - c_info->min.re) / WIN_WIDTH;
@@ -84,10 +94,7 @@ void	plot_mandelbrot_and_burningship(t_canvas *canvas)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			c_info->z.re = 0;
-			c_info->z.im = 0;
-			c_info->c.im = c_info->min.im + y * c_info->delta.im;
-			c_info->c.re = c_info->min.re + x * c_info->delta.re;
+			update_complex_num(canvas, x, y);
 			my_mlx_pixel_put(&canvas->img, x, y, get_color_func(canvas));
 			x++;
 		}
