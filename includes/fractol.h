@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 20:04:07 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 20:06:25 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <math.h>
 # include <stdbool.h>
 # include <stdint.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <sys/stat.h>
@@ -110,7 +109,7 @@ void				my_mlx_pixel_put(t_img *img, int x, int y, int color);
 uint32_t			rgb2hex(int r, int g, int b);
 uint32_t			hsv2hex(double h, double s, double v);
 
-// math_utils.c
+// generic_utils.c
 double				abs_double(double val);
 double				squared(double num);
 void				ft_putstr_fd(char *str, int fd);

@@ -9,7 +9,7 @@ MLX_LIB := -L$(MLX_PATH) -lmlx
 FILES := main.c \
   canvas_utils.c \
   color_utils.c \
-  math_utils.c \
+  generic_utils.c \
   mlx_key_hooks.c \
   mlx_mouse_hooks.c \
   mlx_utils.c \
