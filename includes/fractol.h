@@ -6,15 +6,15 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/20 20:53:15 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:14:20 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "./libft/includes/libft.h"
-# include "./minilibx-linux/mlx.h"
+# include "../libft/includes/libft.h"
+# include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <errno.h>
 # include <fcntl.h>

@@ -10,30 +10,34 @@ LIBFT_PATH := libft
 LIBFT_MAKE := $(MAKE) -C $(LIBFT_PATH)
 LIBFT_LIB := -L./libft/lib -lft
 
-SRCS := main.c \
+FILES := main.c \
   canvas_utils.c \
   mlx_hooks.c \
   mlx_utils.c \
   mandelbrot.c \
   color_utils.c \
   math_utils.c
-OBJS := ${SRCS:.c=.o}
-DEPS := ${SRCS:.c=.d}
+OBJDIR   := objs
+SRCDIR   := srcs
+SRCS	 := $(addprefix $(SRCDIR)/, $(FILES))
+OBJS	 := $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
+INCLUDES := includes
 
-all: ${NAME}
+all: $(OBJDIR) $(NAME)
 
-%.o: %.c
-	# flags -MMD -MP -MF for generating dependency files
-	$(CC) $(CFLAGS) -MMD -MP -MF $(<:.c=.d) -c $< -o $@
+$(NAME): $(MLX_PATH) $(OBJS)
+	$(LIBFT_MAKE)
+	$(CC) -o $(NAME) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -L$(INCLIB) -lXext -lX11 -lm -lbsd
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(MLX_PATH):
 	git clone https://github.com/42Paris/minilibx-linux.git $(MLX_PATH)
 	make -C $(MLX_PATH)
 
--include $(DEPS)
-$(NAME): $(MLX_PATH) $(OBJS)
-	$(LIBFT_MAKE)
-	$(CC) -o $(NAME) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -L$(INCLIB) -lXext -lX11 -lm -lbsd
+$(OBJDIR):
+	mkdir -p $@
 
 clean:
 	$(LIBFT_MAKE) clean
@@ -49,4 +53,4 @@ re: fclean all
 norm:
 	norminette $(SRCS)
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
