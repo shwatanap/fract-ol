@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 17:45:34 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 18:29:14 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,19 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 
-# define KEY_Q 113
 # define KEY_ESC 65307
-# define KEY_SHIFT 65505
-# define KEY_L_ARROW 65361
+# define KEY_LEFT_ARROW 65361
 # define KEY_UP_ARROW 65362
-# define KEY_R_ARROW 65363
-# define KEY_DW_ARROW 65364
+# define KEY_RIGHT_ARROW 65363
+# define KEY_DOWN_ARROW 65364
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
 # define MOUSE_LEFT 1
 
+# define MOVE_RATIO 0.01
 # define WIN_WIDTH 1000
 # define WIN_HEIGHT 1000
-# define MAX_ITER 50
+# define MAX_ITER 100
 
 # define CANVAS_TITLE "fract-ol"
 # define INVALID_ARG_MSG "Please select fractal type\n0: mandelbrot, 1: julia\n"
