@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 17:24:31 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:45:34 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define MAX_ITER 50
 
 # define CANVAS_TITLE "fract-ol"
+# define INVALID_ARG_MSG "Please select fractal type\n0: mandelbrot, 1: julia\n"
 
 typedef struct s_img
 {
@@ -76,6 +77,7 @@ typedef struct s_canvas
 	void			*win;
 	int				max_iter;
 	bool			is_pressed_mouse_left;
+	int				fractal_type;
 	t_img			img;
 	t_complex_info	comp_num;
 }					t_canvas;
