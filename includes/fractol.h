@@ -6,18 +6,18 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:49:03 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 20:04:07 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../libft/includes/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <errno.h>
 # include <fcntl.h>
+# include <limits.h>
 # include <math.h>
 # include <stdbool.h>
 # include <stdint.h>
@@ -26,6 +26,7 @@
 # include <string.h>
 # include <sys/stat.h>
 # include <sys/types.h>
+# include <unistd.h>
 
 # define KEY_ESC 65307
 # define KEY_LEFT_ARROW 65361
@@ -112,4 +113,5 @@ uint32_t			hsv2hex(double h, double s, double v);
 // math_utils.c
 double				abs_double(double val);
 double				squared(double num);
+void				ft_putstr_fd(char *str, int fd);
 #endif
