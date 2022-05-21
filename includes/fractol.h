@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 18:29:14 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:11:03 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ typedef struct s_canvas
 }					t_canvas;
 
 // mandelbrot.c
-void				plot_mandelbrot(t_canvas *canvas);
-void				plot_julia(t_canvas *canvas);
+void 				plot_mandelbrot_and_burningship(t_canvas *canvas);
+void 				plot_julia(t_canvas *canvas);
 
 // canvas_utils.c
 void				init_canvas(t_canvas *canvas);
