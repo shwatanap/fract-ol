@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 14:13:03 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:49:49 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main_loop(t_canvas *canvas)
 {
-	plot_mandelbrot(canvas);
+	plot_julia(canvas);
 	mlx_put_image_to_window(canvas->mlx, canvas->win, canvas->img.img, 0, 0);
 	return (0);
 }
