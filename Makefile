@@ -11,7 +11,6 @@ FILES := main.c \
   generic_utils.c \
   mlx_key_hooks.c \
   mlx_mouse_hooks.c \
-  mlx_utils.c \
   plot_fractal.c
 OBJDIR   := objs
 SRCDIR   := srcs

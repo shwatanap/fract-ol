@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:09 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 23:28:51 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:32:14 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ static uint32_t	get_fractal_color(t_canvas *canvas)
 			return (convert_rgb_hex(0, 0, 0));
 	}
 	return (simple_colorizer(iteration, canvas));
+}
+
+static void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
 
 void	plot_mandelbrot_and_burningship(t_canvas *canvas)
