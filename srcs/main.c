@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 16:50:19 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:07:58 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	update_fractal_c(t_canvas *canvas)
 	c_info->c.im = mouse_im;
 }
 
+// plot_mandelbrot(canvas);
 int	main_loop(t_canvas *canvas)
 {
 	if (canvas->is_pressed_mouse_left)
 		update_fractal_c(canvas);
-	// plot_mandelbrot(canvas);
 	plot_julia(canvas);
 	mlx_put_image_to_window(canvas->mlx, canvas->win, canvas->img.img, 0, 0);
 	return (0);
@@ -51,7 +51,7 @@ int	main(void)
 	mlx_hook(canvas.win, KeyPress, KeyPressMask, key_press_hook, &canvas);
 	mlx_mouse_hook(canvas.win, mouse_press_hook, &canvas);
 	mlx_hook(canvas.win, ButtonRelease, ButtonReleaseMask, mouse_release_hook,
-			&canvas);
+		&canvas);
 	mlx_loop_hook(canvas.mlx, &main_loop, &canvas);
 	mlx_loop(canvas.mlx);
 	return (0);
