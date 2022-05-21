@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:40:25 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	update_fractal_c(t_canvas *canvas)
 
 	c_info = &canvas->comp_info;
 	mlx_mouse_get_pos(canvas->mlx, canvas->win, &x, &y);
-	if (!x && !y)
-		return ;
 	mouse_re = (double)x / (WIN_WIDTH / (c_info->max.re - c_info->min.re))
 		+ c_info->min.re;
 	mouse_im = (double)y / (WIN_HEIGHT / (c_info->max.im - c_info->min.im)) * -1
@@ -36,12 +34,10 @@ int	main_loop(t_canvas *canvas)
 {
 	if (canvas->is_pressed_mouse_left)
 		update_fractal_c(canvas);
-	if (canvas->fractal_type == '0')
+	if (canvas->fractal_type == '0' || canvas->fractal_type == '2')
 		plot_mandelbrot_and_burningship(canvas);
 	else if (canvas->fractal_type == '1')
 		plot_julia(canvas);
-	else if (canvas->fractal_type == '2')
-		plot_mandelbrot_and_burningship(canvas);
 	mlx_put_image_to_window(canvas->mlx, canvas->win, canvas->img.img, 0, 0);
 	return (0);
 }
@@ -51,7 +47,7 @@ int	main(int argc, char **argv)
 	t_canvas	canvas;
 
 	if (argc != 2 || !(argv[1][0] == '0' || argv[1][0] == '1'
-		|| argv[1][0] == '2'))
+			|| argv[1][0] == '2'))
 	{
 		ft_putstr_fd(INVALID_ARG_MSG, STDOUT_FILENO);
 		return (1);

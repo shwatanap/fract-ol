@@ -6,13 +6,13 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:03:58 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/20 21:03:59 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:58:54 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-uint32_t	rgb2hex(int r, int g, int b)
+uint32_t	convert_rgb_hex(int r, int g, int b)
 {
 	uint32_t	color;
 
@@ -23,34 +23,10 @@ uint32_t	rgb2hex(int r, int g, int b)
 	return (color);
 }
 
-/*
- * h: Hue.  [0-360]
- * s: Saturation(Chroma) [0-1]
- * v: Value(Brightness) [0-1]
- */
-uint32_t	hsv2hex(double h, double s, double v)
+uint32_t	simple_colorizer(int iter, t_canvas *canvas)
 {
-	double	c;
-	double	x;
-	double	m;
+	int	a;
 
-	c = v * s;
-	x = c * (1 - abs_double(((int)h / 60 % 2) - 1));
-	m = v - c;
-	if (s == 0)
-		return (rgb2hex((v + m) * 255, (v + m) * 255, (v + m) * 255));
-	if (h >= 300)
-		return (rgb2hex((c + m) * 255, (0 + m) * 255, (x + m) * 255));
-	else if (h >= 240)
-		return (rgb2hex((x + m) * 255, (0 + m) * 255, (c + m) * 255));
-	else if (h >= 180)
-		return (rgb2hex((0 + m) * 255, (x + m) * 255, (c + m) * 255));
-	else if (h >= 120)
-		return (rgb2hex((0 + m) * 255, (c + m) * 255, (x + m) * 255));
-	else if (h >= 60)
-		return (rgb2hex((x + m) * 255, (c + m) * 255, (0 + m) * 255));
-	else if (h >= 0)
-		return (rgb2hex((c + m) * 255, (x + m) * 255, (0 + m) * 255));
-	else
-		return (rgb2hex((0 + m) * 255, (0 + m) * 255, (0 + m) * 255));
+	a = (int)((double)iter / canvas->max_iter * 255);
+	return (convert_rgb_hex(a, a, a));
 }

@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 20:06:25 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:32:46 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,9 @@ int					mouse_press_hook(int button, int x, int y,
 int					mouse_release_hook(int button, int x, int y,
 						t_canvas *canvas);
 
-// mlx_utils.c
-uint32_t			get_color(t_img img, int x, int y);
-void				my_mlx_pixel_put(t_img *img, int x, int y, int color);
-
 // color_utils.c
-uint32_t			rgb2hex(int r, int g, int b);
-uint32_t			hsv2hex(double h, double s, double v);
+uint32_t			convert_rgb_hex(int r, int g, int b);
+uint32_t			simple_colorizer(int iter, t_canvas *canvas);
 
 // generic_utils.c
 double				abs_double(double val);
