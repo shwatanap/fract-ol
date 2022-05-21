@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 15:00:59 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:24:31 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@
 # define KEY_DW_ARROW 65364
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
-# define MOUSE_RIGHT 1
-# define MOUSE_CENTER 2
-# define MOUSE_LEFT 3
+# define MOUSE_LEFT 1
 
 # define WIN_WIDTH 1000
 # define WIN_HEIGHT 1000
@@ -77,6 +75,7 @@ typedef struct s_canvas
 	void			*mlx;
 	void			*win;
 	int				max_iter;
+	bool			is_pressed_mouse_left;
 	t_img			img;
 	t_complex_info	comp_num;
 }					t_canvas;
@@ -92,8 +91,11 @@ void				init_canvas(t_canvas *canvas);
 int					exit_canvas(t_canvas *canvas);
 int					key_press_hook(int keycode, t_canvas *canvas);
 
-// mlx_hook_zoom.c
-int					mouse_hook(int button, int x, int y, t_canvas *canvas);
+// mlx_press_hook.c
+int					mouse_press_hook(int button, int x, int y,
+						t_canvas *canvas);
+int					mouse_release_hook(int button, int x, int y,
+						t_canvas *canvas);
 
 // mlx_utils.c
 uint32_t			get_color(t_img img, int x, int y);

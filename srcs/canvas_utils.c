@@ -35,5 +35,6 @@ void	init_canvas(t_canvas *canvas)
 	canvas->comp_num.min.im = -2;
 	canvas->comp_num.c.re = 0.4;
 	canvas->comp_num.c.im = -0.325;
+	canvas->is_pressed_mouse_left = false;
 	canvas->max_iter = MAX_ITER;
 }
