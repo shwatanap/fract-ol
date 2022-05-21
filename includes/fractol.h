@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 14:59:06 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 15:00:59 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define MOUSE_CENTER 2
 # define MOUSE_LEFT 3
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIN_WIDTH 1000
+# define WIN_HEIGHT 1000
 # define MAX_ITER 50
 
 # define CANVAS_TITLE "fract-ol"

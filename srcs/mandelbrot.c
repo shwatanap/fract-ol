@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:09 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 14:48:46 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 15:04:50 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	plot_mandelbrot(t_canvas *canvas)
 	t_complex_info	*c_info;
 
 	c_info = &canvas->comp_num;
-	c_info->delta.re = (c_info->max.re - c_info->min.re) / WIDTH;
-	c_info->delta.im = (c_info->max.im - c_info->min.im) / HEIGHT;
+	c_info->delta.re = (c_info->max.re - c_info->min.re) / WIN_WIDTH;
+	c_info->delta.im = (c_info->max.im - c_info->min.im) / WIN_HEIGHT;
 	y = 0;
-	while (y < HEIGHT)
+	while (y < WIN_HEIGHT)
 	{
 		x = 0;
-		while (x < WIDTH)
+		while (x < WIN_WIDTH)
 		{
 			c_info->z.re = 0;
 			c_info->z.im = 0;
@@ -70,13 +70,13 @@ void	plot_julia(t_canvas *canvas)
 	t_complex_info	*c_info;
 
 	c_info = &canvas->comp_num;
-	c_info->delta.re = (c_info->max.re - c_info->min.re) / WIDTH;
-	c_info->delta.im = (c_info->max.im - c_info->min.im) / HEIGHT;
+	c_info->delta.re = (c_info->max.re - c_info->min.re) / WIN_WIDTH;
+	c_info->delta.im = (c_info->max.im - c_info->min.im) / WIN_HEIGHT;
 	y = 0;
-	while (y < HEIGHT)
+	while (y < WIN_HEIGHT)
 	{
 		x = 0;
-		while (x < WIDTH)
+		while (x < WIN_WIDTH)
 		{
 			c_info->z.im = c_info->min.im + y * c_info->delta.im;
 			c_info->z.re = c_info->min.re + x * c_info->delta.re;
