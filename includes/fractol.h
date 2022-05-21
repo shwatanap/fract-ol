@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 13:14:20 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:24:51 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 
-// # define KEY_Q 113
+# define KEY_Q 113
 # define KEY_ESC 65307
-// # define KEY_SHIFT 65505
-// # define KEY_L_ARROW 65361
-// # define KEY_UP_ARROW 65362
-// # define KEY_R_ARROW 65363
-// # define KEY_DW_ARROW 65364
-// # define SCROLL_UP 5
-// # define SCROLL_DOWN 4
-// # define MOUSE_RIGHT 1
-// # define MOUSE_CENTER 2
-// # define MOUSE_LEFT 3
+# define KEY_SHIFT 65505
+# define KEY_L_ARROW 65361
+# define KEY_UP_ARROW 65362
+# define KEY_R_ARROW 65363
+# define KEY_DW_ARROW 65364
+# define SCROLL_UP 5
+# define SCROLL_DOWN 4
+# define MOUSE_RIGHT 1
+# define MOUSE_CENTER 2
+# define MOUSE_LEFT 3
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -90,6 +90,9 @@ void				init_canvas(t_canvas *canvas);
 // mlx_hooks.c
 int					exit_canvas(t_canvas *canvas);
 int					key_press_hook(int keycode, t_canvas *canvas);
+
+// mlx_hook_zoom.c
+int					mouse_hook(int button, int x, int y, t_canvas *canvas);
 
 // mlx_utils.c
 uint32_t			get_color(t_img img, int x, int y);
