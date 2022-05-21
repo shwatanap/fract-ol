@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_zoom.c                                    :+:      :+:    :+:   */
+/*   mlx_mouse_hooks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:54:53 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 16:48:30 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	zoom_canvas(t_canvas *canvas, int button, int x, int y)
 	double			interpolation;
 	t_complex_info	*c_info;
 
-	c_info = &canvas->comp_num;
+	c_info = &canvas->comp_info;
 	mouse_re = (double)x / (WIN_WIDTH / (c_info->max.re - c_info->min.re))
 		+ c_info->min.re;
 	mouse_im = (double)y / (WIN_HEIGHT / (c_info->max.im - c_info->min.im))
