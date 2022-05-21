@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:48:20 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:49:03 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,14 @@ typedef struct s_canvas
 	void			*win;
 	int				max_iter;
 	bool			is_pressed_mouse_left;
-	int				fractal_type;
+	char			fractal_type;
 	t_img			img;
 	t_complex_info	comp_info;
 }					t_canvas;
 
 typedef uint32_t	(*t_get_color_func)(t_canvas *);
 
-// mandelbrot.c
+// plot_fractal.c
 void				plot_mandelbrot_and_burningship(t_canvas *canvas);
 void				plot_julia(t_canvas *canvas);
 

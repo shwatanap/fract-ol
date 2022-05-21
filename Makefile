@@ -12,12 +12,12 @@ LIBFT_LIB := -L./libft/lib -lft
 
 FILES := main.c \
   canvas_utils.c \
+  color_utils.c \
+  math_utils.c \
   mlx_key_hooks.c \
   mlx_mouse_hooks.c \
   mlx_utils.c \
-  mandelbrot.c \
-  color_utils.c \
-  math_utils.c
+  plot_fractal.c
 OBJDIR   := objs
 SRCDIR   := srcs
 SRCS	 := $(addprefix $(SRCDIR)/, $(FILES))

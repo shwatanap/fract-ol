@@ -36,11 +36,11 @@ int	main_loop(t_canvas *canvas)
 {
 	if (canvas->is_pressed_mouse_left)
 		update_fractal_c(canvas);
-	if (canvas->fractal_type == 0)
+	if (canvas->fractal_type == '0')
 		plot_mandelbrot_and_burningship(canvas);
-	else if (canvas->fractal_type == 1)
+	else if (canvas->fractal_type == '1')
 		plot_julia(canvas);
-	else if (canvas->fractal_type == 2)
+	else if (canvas->fractal_type == '2')
 		plot_mandelbrot_and_burningship(canvas);
 	mlx_put_image_to_window(canvas->mlx, canvas->win, canvas->img.img, 0, 0);
 	return (0);
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd(INVALID_ARG_MSG, STDOUT_FILENO);
 		return (1);
 	}
-	canvas.fractal_type = argv[1][0] - '0';
+	canvas.fractal_type = argv[1][0];
 	init_canvas(&canvas);
 	mlx_hook(canvas.win, ClientMessage, 1L << 17, exit_canvas, &canvas);
 	mlx_hook(canvas.win, KeyPress, KeyPressMask, key_press_hook, &canvas);

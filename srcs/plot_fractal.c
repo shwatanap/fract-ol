@@ -82,8 +82,9 @@ void	plot_mandelbrot_and_burningship(t_canvas *canvas)
 	t_complex_info		*c_info;
 	t_get_color_func	get_color_func;
 
-	get_color_func = get_fractal_color;
-	if (canvas->fractal_type == 2)
+	if (canvas->fractal_type == '0')
+		get_color_func = get_fractal_color;
+	else if (canvas->fractal_type == '2')
 		get_color_func = get_burningship_color;
 	c_info = &canvas->comp_info;
 	c_info->delta.re = (c_info->max.re - c_info->min.re) / WIN_WIDTH;
