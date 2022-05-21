@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:12:20 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	update_fractal_c(t_canvas *canvas)
 	double			mouse_im;
 	t_complex_info	*c_info;
 
-	c_info = &canvas->comp_num;
+	c_info = &canvas->comp_info;
 	mlx_mouse_get_pos(canvas->mlx, canvas->win, &x, &y);
 	if (!x && !y)
 		return ;
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 	mlx_hook(canvas.win, KeyPress, KeyPressMask, key_press_hook, &canvas);
 	mlx_mouse_hook(canvas.win, mouse_press_hook, &canvas);
 	mlx_hook(canvas.win, ButtonRelease, ButtonReleaseMask, mouse_release_hook,
-			&canvas);
+		&canvas);
 	mlx_loop_hook(canvas.mlx, &main_loop, &canvas);
 	mlx_loop(canvas.mlx);
 	return (0);

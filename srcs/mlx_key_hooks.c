@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:18 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 18:25:28 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	move_arrow_key2(int keycode, t_canvas *canvas)
 	t_complex_num	*min;
 	double			offset;
 
-	max = &canvas->comp_num.max;
-	min = &canvas->comp_num.min;
+	max = &canvas->comp_info.max;
+	min = &canvas->comp_info.min;
 	offset = max->re - min->re;
 	if (keycode == KEY_RIGHT_ARROW)
 	{
@@ -39,8 +39,8 @@ static void	move_arrow_key(int keycode, t_canvas *canvas)
 	t_complex_num	*min;
 	double			offset;
 
-	max = &canvas->comp_num.max;
-	min = &canvas->comp_num.min;
+	max = &canvas->comp_info.max;
+	min = &canvas->comp_info.min;
 	offset = max->im - min->im;
 	if (keycode == KEY_UP_ARROW)
 	{
