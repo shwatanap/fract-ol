@@ -52,5 +52,6 @@ re: fclean all
 
 norm:
 	norminette $(SRCS)
+	norminette $(INCLUDES)
 
 .PHONY: all clean fclean re

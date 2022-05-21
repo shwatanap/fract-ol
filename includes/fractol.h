@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 16:49:38 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:24:31 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int					exit_canvas(t_canvas *canvas);
 int					key_press_hook(int keycode, t_canvas *canvas);
 
 // mlx_press_hook.c
-int					mouse_press_hook(int button, int x, int y, t_canvas *canvas);
+int					mouse_press_hook(int button, int x, int y,
+						t_canvas *canvas);
 int					mouse_release_hook(int button, int x, int y,
 						t_canvas *canvas);
 
