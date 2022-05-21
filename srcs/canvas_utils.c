@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:03:52 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 13:29:45 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:59:54 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ void	init_canvas(t_canvas *canvas)
 	canvas->comp_num.max.im = 2;
 	canvas->comp_num.min.re = -2;
 	canvas->comp_num.min.im = -2;
+	canvas->max_iter = MAX_ITER;
 }

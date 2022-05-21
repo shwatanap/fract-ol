@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:09 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 13:35:21 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:01:31 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static uint32_t	get_color_in_fractal(t_canvas *canvas)
 		c_num.z.im = 2 * c_num.z.re * c_num.z.im + c_num.c.im;
 		c_num.z.re = tmp_x;
 		iteration++;
-		if (iteration == MAX_ITER)
+		if (iteration == canvas->max_iter)
 			return (rgb2hex(0, 0, 0));
 	}
 	if (iteration % 2 == 0)
