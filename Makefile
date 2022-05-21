@@ -6,14 +6,10 @@ INCLIB=$(INC)/../lib
 MLX_PATH := ./minilibx-linux
 MLX_LIB := -L$(MLX_PATH) -lmlx
 
-LIBFT_PATH := libft
-LIBFT_MAKE := $(MAKE) -C $(LIBFT_PATH)
-LIBFT_LIB := -L./libft/lib -lft
-
 FILES := main.c \
   canvas_utils.c \
   color_utils.c \
-  math_utils.c \
+  generic_utils.c \
   mlx_key_hooks.c \
   mlx_mouse_hooks.c \
   mlx_utils.c \
@@ -27,8 +23,7 @@ INCLUDES := includes
 all: $(OBJDIR) $(NAME)
 
 $(NAME): $(MLX_PATH) $(OBJS)
-	$(LIBFT_MAKE)
-	$(CC) -o $(NAME) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -L$(INCLIB) -lXext -lX11 -lm -lbsd
+	$(CC) -o $(NAME) $(OBJS) $(MLX_LIB) -L$(INCLIB) -lXext -lX11 -lm -lbsd
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
@@ -41,11 +36,9 @@ $(OBJDIR):
 	mkdir -p $@
 
 clean:
-	$(LIBFT_MAKE) clean
 	${RM} ${OBJS}
 
 fclean: clean
-	$(LIBFT_MAKE) fclean
 	${RM} ${NAME}
 
 re: fclean all

@@ -1,16 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 23:43:23 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/22 17:24:42 by shwatana         ###   ########.fr       */
+/*   Created: 2022/05/20 21:04:14 by shwatana          #+#    #+#             */
+/*   Updated: 2022/05/21 19:59:58 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fractol.h"
+
+double	abs_double(double val)
+{
+	if (val < 0)
+		return (-val);
+	return (val);
+}
+
+double	squared(double num)
+{
+	return (num * num);
+}
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 
 void	ft_putstr_fd(char *str, int fd)
 {
