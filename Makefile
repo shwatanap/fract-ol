@@ -13,7 +13,7 @@ LIBFT_LIB := -L./libft/lib -lft
 FILES := main.c \
   canvas_utils.c \
   mlx_hooks.c \
-  mlx_hook_zoom.c \
+  mlx_mouse_hooks.c \
   mlx_utils.c \
   mandelbrot.c \
   color_utils.c \

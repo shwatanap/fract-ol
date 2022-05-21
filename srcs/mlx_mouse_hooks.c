@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hooks2.c                                       :+:      :+:    :+:   */
+/*   mlx_hook_zoom.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:54:53 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 14:11:53 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 16:48:30 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static void	zoom_canvas(t_canvas *canvas, int button, int x, int y)
 	t_complex_info	*c_info;
 
 	c_info = &canvas->comp_num;
-	mouse_re = (double)x / (WIDTH / (c_info->max.re - c_info->min.re))
+	mouse_re = (double)x / (WIN_WIDTH / (c_info->max.re - c_info->min.re))
 		+ c_info->min.re;
-	mouse_im = (double)y / (HEIGHT / (c_info->max.im - c_info->min.im))
+	mouse_im = (double)y / (WIN_HEIGHT / (c_info->max.im - c_info->min.im))
 		+ c_info->min.im;
 	if (button == SCROLL_UP)
 	{
@@ -46,9 +46,20 @@ static void	zoom_canvas(t_canvas *canvas, int button, int x, int y)
 	c_info->max.im = interpolate(mouse_im, c_info->max.im, interpolation);
 }
 
-int	mouse_hook(int button, int x, int y, t_canvas *canvas)
+int	mouse_press_hook(int button, int x, int y, t_canvas *canvas)
 {
 	if (button == SCROLL_UP || button == SCROLL_DOWN)
 		zoom_canvas(canvas, button, x, y);
+	else if (button == MOUSE_LEFT)
+		canvas->is_pressed_mouse_left = true;
+	return (0);
+}
+
+int	mouse_release_hook(int button, int x, int y, t_canvas *canvas)
+{
+	(void)x;
+	(void)y;
+	if (button == MOUSE_LEFT)
+		canvas->is_pressed_mouse_left = false;
 	return (0);
 }
