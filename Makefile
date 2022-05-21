@@ -42,7 +42,6 @@ $(OBJDIR):
 clean:
 	$(LIBFT_MAKE) clean
 	${RM} ${OBJS}
-	${RM} ${DEPS}
 
 fclean: clean
 	$(LIBFT_MAKE) fclean
