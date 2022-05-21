@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 17:07:58 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:53:05 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@ int	main_loop(t_canvas *canvas)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_canvas	canvas;
 
+	if (argc != 2 || !(argv[1][0] == '0' || argv[1][0] == '1'))
+	{
+		ft_putstr_fd(INVALID_ARG_MSG, STDOUT_FILENO);
+		exit(1);
+	}
+	canvas.fractal_type = argv[1][0] - '0';
 	init_canvas(&canvas);
 	mlx_hook(canvas.win, ClientMessage, 1L << 17, exit_canvas, &canvas);
 	mlx_hook(canvas.win, KeyPress, KeyPressMask, key_press_hook, &canvas);
