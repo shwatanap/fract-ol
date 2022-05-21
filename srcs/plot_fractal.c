@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   plot_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:09 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:57:11 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static uint32_t	get_fractal_color(t_canvas *canvas)
 {
 	int				iteration;
-	int				color;
 	double			tmp_x;
 	t_complex_info	c_info;
 
@@ -28,19 +27,14 @@ static uint32_t	get_fractal_color(t_canvas *canvas)
 		c_info.z.re = tmp_x;
 		iteration++;
 		if (iteration == canvas->max_iter)
-			return (rgb2hex(0, 0, 0));
+			return (convert_rgb_hex(0, 0, 0));
 	}
-	if (iteration % 2 == 0)
-		color = rgb2hex(0, 255, 0);
-	else
-		color = rgb2hex(255, 0, 127);
-	return (color);
+	return (simple_colorizer(iteration, canvas));
 }
 
 static uint32_t	get_burningship_color(t_canvas *canvas)
 {
 	int				iteration;
-	int				color;
 	double			tmp_x;
 	t_complex_info	*c_info;
 
@@ -55,13 +49,10 @@ static uint32_t	get_burningship_color(t_canvas *canvas)
 			+ c_info->c.im;
 		c_info->z.re = tmp_x;
 		iteration++;
+		if (iteration == canvas->max_iter)
+			return (convert_rgb_hex(0, 0, 0));
 	}
-	if (iteration == canvas->max_iter)
-		color = rgb2hex(0, 0, 0);
-	else
-		color = hsv2hex(iteration % 360, (double)iteration / canvas->max_iter,
-				((double)iteration / canvas->max_iter));
-	return (color);
+	return (simple_colorizer(iteration, canvas));
 }
 
 static void	update_complex_num(t_canvas *canvas, int x, int y)
