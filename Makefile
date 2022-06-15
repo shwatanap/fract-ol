@@ -18,9 +18,9 @@ SRCS	 := $(addprefix $(SRCDIR)/, $(FILES))
 OBJS	 := $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 INCLUDES := includes
 
-all: $(OBJDIR) $(NAME)
+all: $(NAME)
 
-$(NAME): $(MLX_PATH) $(OBJS)
+$(NAME): $(MLX_PATH) $(OBJDIR) $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) $(MLX_LIB) -L$(INCLIB) -lXext -lX11 -lm -lbsd
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
