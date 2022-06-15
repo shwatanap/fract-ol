@@ -6,22 +6,25 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:54:53 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 20:15:14 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static double	interpolate(double start, double end, double interpolation)
+static double	magnify(double start, double end, double magnification)
 {
-	return (start + ((end - start) * interpolation));
+	double	offset;
+
+	offset = end - start;
+	return (start + (offset * magnification));
 }
 
 static void	zoom_canvas(t_canvas *canvas, int button, int x, int y)
 {
 	double			mouse_re;
 	double			mouse_im;
-	double			interpolation;
+	double			magnification;
 	t_complex_info	*c_info;
 
 	c_info = &canvas->comp_info;
@@ -30,20 +33,13 @@ static void	zoom_canvas(t_canvas *canvas, int button, int x, int y)
 	mouse_im = (double)y / (WIN_HEIGHT / (c_info->max.im - c_info->min.im))
 		+ c_info->min.im;
 	if (button == SCROLL_UP)
-	{
-		if (canvas->max_iter > 4)
-			canvas->max_iter -= 4;
-		interpolation = 1.0 / 0.8;
-	}
+		magnification = 1.0 / 0.8;
 	else if (button == SCROLL_DOWN)
-	{
-		canvas->max_iter += 4;
-		interpolation = 1.0 / 1.2;
-	}
-	c_info->min.re = interpolate(mouse_re, c_info->min.re, interpolation);
-	c_info->min.im = interpolate(mouse_im, c_info->min.im, interpolation);
-	c_info->max.re = interpolate(mouse_re, c_info->max.re, interpolation);
-	c_info->max.im = interpolate(mouse_im, c_info->max.im, interpolation);
+		magnification = 1.0 / 1.2;
+	c_info->min.re = magnify(mouse_re, c_info->min.re, magnification);
+	c_info->min.im = magnify(mouse_im, c_info->min.im, magnification);
+	c_info->max.re = magnify(mouse_re, c_info->max.re, magnification);
+	c_info->max.im = magnify(mouse_im, c_info->max.im, magnification);
 }
 
 int	mouse_press_hook(int button, int x, int y, t_canvas *canvas)

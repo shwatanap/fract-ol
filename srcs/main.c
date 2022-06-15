@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 23:40:25 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 20:35:02 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(int argc, char **argv)
 {
 	t_canvas	canvas;
 
-	if (argc != 2 || !(argv[1][0] == '0' || argv[1][0] == '1'
-			|| argv[1][0] == '2'))
+	if (argc != 2 || (!(argv[1][0] == '0' || argv[1][0] == '1'
+		|| argv[1][0] == '2') || argv[1][1] != '\0'))
 	{
 		ft_putstr_fd(INVALID_ARG_MSG, STDOUT_FILENO);
 		return (1);
