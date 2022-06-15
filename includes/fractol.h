@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/06/15 19:24:20 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:25:20 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ uint32_t			simple_colorizer(int iter, t_canvas *canvas);
 double				abs_double(double val);
 double				squared(double num);
 void				ft_putstr_fd(char *str, int fd);
+
 #endif
