@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/06/15 19:17:23 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:24:20 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,10 @@
 
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
-# include <errno.h>
-# include <fcntl.h>
 # include <limits.h>
-# include <math.h>
 # include <stdbool.h>
 # include <stdint.h>
 # include <stdlib.h>
-# include <string.h>
-# include <sys/stat.h>
-# include <sys/types.h>
 # include <unistd.h>
 
 # define KEY_ESC 65307
