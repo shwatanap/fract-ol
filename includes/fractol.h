@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 00:47:04 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 23:32:46 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:17:23 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void				plot_julia(t_canvas *canvas);
 void				init_canvas(t_canvas *canvas);
 
 // mlx_hooks.c
-int					exit_canvas(t_canvas *canvas);
+int					exit_canvas(int exit_code);
 int					key_press_hook(int keycode, t_canvas *canvas);
 
 // mlx_press_hook.c

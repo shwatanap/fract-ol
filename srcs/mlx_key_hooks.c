@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:04:18 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:17:33 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,15 @@ static void	move_arrow_key(int keycode, t_canvas *canvas)
 	move_arrow_key2(keycode, canvas);
 }
 
-int	exit_canvas(t_canvas *canvas)
+int	exit_canvas(int exit_code)
 {
-	mlx_destroy_window(canvas->mlx, canvas->win);
-	exit(0);
+	exit(exit_code);
 }
 
 int	key_press_hook(int keycode, t_canvas *canvas)
 {
 	if (keycode == KEY_ESC)
-		exit_canvas(canvas);
+		exit_canvas(EXIT_SUCCESS);
 	if (keycode == KEY_UP_ARROW || keycode == KEY_DOWN_ARROW
 		|| keycode == KEY_LEFT_ARROW || keycode == KEY_RIGHT_ARROW)
 		move_arrow_key(keycode, canvas);

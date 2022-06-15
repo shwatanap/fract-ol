@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 21:03:52 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/21 19:47:01 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:19:19 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	init_canvas(t_canvas *canvas)
 {
 	canvas->mlx = mlx_init();
 	if (canvas->mlx == NULL)
-		exit(1);
+		exit_canvas(EXIT_FAILURE);
 	canvas->win = mlx_new_window(canvas->mlx, WIN_WIDTH, WIN_HEIGHT,
 			CANVAS_TITLE);
 	if (canvas->win == NULL)
-		exit(1);
+		exit_canvas(EXIT_FAILURE);
 	canvas->img.img = mlx_new_image(canvas->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!canvas->img.img)
-		exit(1);
+		exit_canvas(EXIT_FAILURE);
 	canvas->img.addr = mlx_get_data_addr(
 			canvas->img.img,
 			&canvas->img.bits_per_pixel,
